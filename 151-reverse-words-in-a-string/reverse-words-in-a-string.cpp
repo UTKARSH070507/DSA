@@ -12,7 +12,8 @@ public:
                 word += s[i];
                 i++;
             }
-            result = word + ' ' + result;
+            word += ' ';
+            result = word.append(result);
 
         }
         if (!result.empty()){result.pop_back();}
