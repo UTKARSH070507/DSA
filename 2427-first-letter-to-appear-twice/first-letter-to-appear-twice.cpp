@@ -1,10 +1,10 @@
 class Solution {
 public:
     char repeatedCharacter(string s) {
-        int seen[26] = {0};
+        unordered_set<char> seen;
         for(char i : s){
-            if(seen[i - 'a'] != 0){return i;}
-            seen[i - 'a'] = 1;
+            if(seen.count(i)){return i;}
+            seen.insert(i);
         }
         return ' ';
     }
