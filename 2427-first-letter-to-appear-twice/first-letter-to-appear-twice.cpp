@@ -1,10 +1,10 @@
 class Solution {
 public:
     char repeatedCharacter(string s) {
-        vector<int> seen(256,0);
+        int seen[26] = {0};
         for(char i : s){
-            if(seen[i] != 0){return i;}
-            seen[i] = 1;
+            if(seen[i - 'a'] != 0){return i;}
+            seen[i - 'a'] = 1;
         }
         return ' ';
     }
