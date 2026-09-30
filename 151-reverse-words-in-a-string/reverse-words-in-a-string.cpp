@@ -8,7 +8,7 @@ public:
             if(i < 0){break;}
             int j = i;
             while(i >= 0 && s[i] != ' '){i--;}
-            for(int a = i+1;a <= j;a++){output += s[a];}
+            output += s.substr(i + 1, j - i);
             output += ' ';
         }
         if (!output.empty()){output.pop_back();}
