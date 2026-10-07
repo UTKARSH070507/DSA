@@ -6,9 +6,9 @@ public:
             if(value.count(target - nums[i])){
                 return {value[target - nums[i]],i};
             }
-            else{
-                value[nums[i]] = i;
-            }
+            
+            value[nums[i]] = i;
+            
         }
         return {0,0};
     }
