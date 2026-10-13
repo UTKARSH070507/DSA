@@ -1,24 +1,27 @@
 class Solution {
 public:
-    string sortSentence(string s) {
-        vector<string> seq(9);
-        for(int i = 0;i < s.length();i++){
-            string word = "";
-            while(s[i] == ' '){i++;}
-            while (i < s.length() && (s[i] < '0' || s[i] > '9')) {
-                word += s[i];
-                i++;
-            } 
 
-            seq[(s[i] - '0') - 1] = word;
+    
+    string sortSentence(string s) {
+        stringstream ss(s); 
+        string word;
+        vector<string> result(10); 
+        while(ss>>word){
+            int position = word.back() - '0'; 
+            word.pop_back();
+            result[position]=word;
         }
-        s = "";
-        for (string word : seq) {
-            if (!word.empty()) {
-                if (!s.empty()) s += " ";
-            s += word;
+
+        string answer;
+        for(int i=0;i<10;i++){
+            if(result[i] != ""){
+                answer += result[i];
+                answer +=" ";
             }
         }
-        return s;
+
+        answer.pop_back(); 
+
+        return answer;
     }
 };
